@@ -1,0 +1,11 @@
+Create the HTML framework
+Make sure we have all the necessary classes and ids
+Create a function to fetch the genres api to populate the genres dropdown
+When we click the Search Button -> Fetch the api for recommendations and Pass in the selected genre, min & max popularity
+When we get the results back, we want to display the artists info - we might want to limit by number (hardcoded)
+Based on these results we need to make another api call (TBD)
+Foreach artist, create a card/accordion that shows up on the right side of the web page
+Have a button inside the card that when clicked saves the artist name in the local storage
+Get the data from the local storage and display on the web page 
+    (some where - we still need a div/section to display this)
+    Maybe another html page "Artists you like" -> link this from the main page
