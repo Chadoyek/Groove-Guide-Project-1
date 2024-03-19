@@ -1,7 +1,34 @@
-.grid-x{
-    padding: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+:root{
+    --main-color: #a41b4c;
+    --main-font:'Luckiest Guy', sans-serif;
+
 }
 
+body {
+    font-family: var(--main-font);
+}
+
+
+
+.grid-x{
+    padding: 20px;
+    border-right: 5;
+}
+
+.card {
+    margin-left: 300px;
+    margin-top: 50px;
+
+}
 .cell{
     padding: 20px;
 }
+
+.top-bar {
+    background-color: var(--main-color);
+
+}
+
+
