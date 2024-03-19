@@ -3,13 +3,13 @@ $(document).foundation();
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 var genre = document.querySelector('#genre');
-var minPop = document.querySelector('#sliderOutput1') //variable for minimum popularity //we still need to gather this data, it isnt being done right now
-var maxPop = document.querySelector('#sliderOutput2')//variable for maximum popularity // we still need to gather this data, it isnt being done right now
-var tracksSaved = document.querySelector('#tracksSaved') //placeholder variable for tracks saved //Feature to add later? 
+var minPop = document.querySelector('#sliderOutput1'); //variable for minimum popularity //we still need to gather this data, it isnt being done right now
+var maxPop = document.querySelector('#sliderOutput2');//variable for maximum popularity // we still need to gather this data, it isnt being done right now
+var tracksSaved = document.querySelector('#tracksSaved'); //placeholder variable for tracks saved //Feature to add later? 
 
 var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
 var client_secret = '73ca7f76b05e435a933602925a2392e7';
-var url = 'https://accounts.spotify.com/api/token'
+var url = 'https://accounts.spotify.com/api/token';
 var form = new URLSearchParams({grant_type: 'client_credentials'});
 
 
@@ -75,7 +75,6 @@ function getGenres() {
 //manually set variables for testing
 genre = "country"
 minPop = 0
-//variable for maximum popularity
 maxPop = 100
 
 function getApi() {
