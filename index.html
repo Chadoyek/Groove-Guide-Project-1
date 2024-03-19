@@ -27,6 +27,7 @@
 
         <!-- Compressed JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+        <script src="https://bucky-cors-proxy.herokuapp.com/fetch.js"></script>
 
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
@@ -97,7 +98,13 @@
                               <option value="apollo">Trend 4</option>
                             </select>
                         </label>
-                    </div><!--#genre-->
+                    </div>
+                    <div class="button" id="fetchButton" >
+                        <p>
+                         "Guide me"
+                        </p> 
+                    </div>
+                    <!--#genre-->
                 </div>
                 <div class="cell medium-6 large-8">
                     <div class="card" style="width: 300px;">
@@ -105,7 +112,7 @@
                           This is a header
                         </div>
                         <img src="assets/img/generic/rectangle-1.jpg">
-                        <div class="card-section">
+                        <div class="card-section" id="test-card">
                           <h4>This is a card.</h4>
                           <p>It has an easy to override visual style, and is appropriately subdued.</p>
                         </div>

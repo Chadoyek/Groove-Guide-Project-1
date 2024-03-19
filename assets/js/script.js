@@ -1,28 +1,44 @@
+
 $(document).foundation();
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 
-var client_id = 'CLIENT_ID';
-var client_secret = 'CLIENT_SECRET';
+var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
+var client_secret = '73ca7f76b05e435a933602925a2392e7';
+var url = 'https://accounts.spotify.com/api/token'
+var form = new URLSearchParams({grant_type: 'client_credentials'});
+var token = "";
+var header = ('Authorization: Bearer '+ token);
+console.log(header);
+//form.append("grant_type", "client_credentials")
 
 var authOptions = {
-  url: 'https://accounts.spotify.com/api/token',
+  method: "POST",
   headers: {
-    'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64'))
+    'Authorization': 'Basic ' + (btoa(client_id + ':' + client_secret)),
+    'content-type': 'application/x-www-form-urlencoded',
   },
-  form: {
-    grant_type: 'client_credentials'
-  },
-  json: true
+  body: form
 };
 
-request.post(authOptions, function(error, response, body) {
-  if (!error && response.statusCode === 200) {
-    var token = body.access_token;
-    console.log("error!")
+fetch(url, authOptions).then (function(response) {
+  if (response.status === 200) {
+  
+  //console.log("error!")
+  response.json().then(function(body){
+    token = body.access_token;
+    console.log(token)
+  
+   // getApi(token);
+  })
+  return;
   }
-});
+  response.json().then(function(error){
+    console.log(error)
+  })
 
+});
+//console.log('this is the session token', token,);
 //we should be getting this back: 
 
 //{
@@ -35,17 +51,22 @@ request.post(authOptions, function(error, response, body) {
  // --url 'https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry&seed_tracks=0c6xIDDpzE81m2q797ordA' \
  // --header 'Authorization: Bearer 1POdFZRZbvb...qqillRxMr2z'
 //variable for genre
-var genre = ""
+var genre = "country"
 //variable for minimum popularity
 var minPop = 0
 //variable for maximukm popularity
 var maxPop = 100
 
  function getApi() {
+  console.log(token)
     //get the API with user selected stuff
       var requestUrl = 'https://api.spotify.com/v1/recommendations?seed_genres=' + genre + '&&min_popularity='+ minPop + '&max_popularity='+ maxPop;
-    
-      fetch(requestUrl)
+      
+      fetch(requestUrl, {
+        headers: {
+          'Authorization': 'Bearer ' + token
+        },
+      })
         .then(function (response) {
           return response.json();
         })
