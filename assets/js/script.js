@@ -1,3 +1,4 @@
+
 $(document).foundation();
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
@@ -5,8 +6,10 @@ $(document).foundation();
 var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
 var client_secret = '73ca7f76b05e435a933602925a2392e7';
 var url = 'https://accounts.spotify.com/api/token'
-var form = new URLSearchParams({grant_type: 'client_credentials'})
-var SessionToken =""
+var form = new URLSearchParams({grant_type: 'client_credentials'});
+var token = "";
+var header = ('Authorization: Bearer '+ token);
+console.log(header);
 //form.append("grant_type", "client_credentials")
 
 var authOptions = {
@@ -23,11 +26,10 @@ fetch(url, authOptions).then (function(response) {
   
   //console.log("error!")
   response.json().then(function(body){
-    var token = body.access_token;
+    token = body.access_token;
     console.log(token)
-    console.log(body)
-    SessionToken= token
-    getApi(token);
+  
+   // getApi(token);
   })
   return;
   }
@@ -36,7 +38,7 @@ fetch(url, authOptions).then (function(response) {
   })
 
 });
-console.log('this is the session token', token, SessionToken);
+//console.log('this is the session token', token,);
 //we should be getting this back: 
 
 //{
@@ -55,14 +57,14 @@ var minPop = 0
 //variable for maximukm popularity
 var maxPop = 100
 
- function getApi(token) {
+ function getApi() {
   console.log(token)
     //get the API with user selected stuff
-      var requestUrl = 'https://api.spotify.com/v1/recommendations?seed_genres=country&min_popularity=0&max_popularity=100' ; //'https://api.spotify.com/v1/recommendations?seed_genres=' + genre + '&&min_popularity='+ minPop + '&max_popularity='+ maxPop;
-    
+      var requestUrl = 'https://api.spotify.com/v1/recommendations?seed_genres=' + genre + '&&min_popularity='+ minPop + '&max_popularity='+ maxPop;
+      
       fetch(requestUrl, {
         headers: {
-          'Authorization: Bearer ': token,
+          'Authorization': 'Bearer ' + token
         },
       })
         .then(function (response) {
