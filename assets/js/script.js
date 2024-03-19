@@ -2,10 +2,10 @@
 $(document).foundation();
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
-var Genre = document.querySelector('#genre');
-var popLow = document.querySelector('#sliderOutput1') // we still need to gather this data, it isnt being done right now
-var popHigh = document.querySelector('#sliderOutput2')// we still need to gather this data, it isnt being done right now
-var tracksSaved = document.querySelector('#tracksSaved') //Feature to add later?
+var genre = document.querySelector('#genre');
+var minPop = document.querySelector('#sliderOutput1') //variable for minimum popularity //we still need to gather this data, it isnt being done right now
+var maxPop = document.querySelector('#sliderOutput2')//variable for maximum popularity // we still need to gather this data, it isnt being done right now
+var tracksSaved = document.querySelector('#tracksSaved') //placeholder variable for tracks saved //Feature to add later? 
 
 var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
 var client_secret = '73ca7f76b05e435a933602925a2392e7';
@@ -37,8 +37,6 @@ fetch(url, authOptions).then (function(response) {
   response.json().then(function(error){
     console.log(error)
   })
-  
-      
 });
 
 //we should be getting this back: 
@@ -74,12 +72,12 @@ function getGenres() {
       });
   }
 
-//variable for genre
-var genre = "country"
-//variable for minimum popularity
-var minPop = 0
-//variable for maximukm popularity
-var maxPop = 100
+//manually set variables for testing
+genre = "country"
+minPop = 0
+//variable for maximum popularity
+maxPop = 100
+
 function getApi() {
    //get the API with user selected stuff
    var requestUrl = 'https://api.spotify.com/v1/recommendations?seed_genres=' + genre + '&&min_popularity='+ minPop + '&max_popularity='+ maxPop;
