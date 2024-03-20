@@ -71,18 +71,20 @@
                             </select>
                         </label>
                     </div><!--#genre-->
-                    <div id="monthlyListeners">
-                        <p>Monthly Listeners</p>
-                        <div class="slider" data-slider data-initial-start="50" data-end="200">
-                            <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
+                    <div id="popularity">
+                        <p>Popularity</p>
+                        <div class="slider" data-slider data-initial-start="25" data-initial-end="75">
+                            <span class="slider-handle" data-slider-handle role="slider" tabindex="1"></span>
                             <span class="slider-fill" data-slider-fill></span>
-                            <input type="hidden">
-                          </div>
+                            <span class="slider-handle" data-slider-handle role="slider" tabindex="1"></span>
+                            <input type="hidden" id="sliderOutput1">
+                            <input type="hidden" id="sliderOutput2">
+                        </div>
                     </div>
 
                     <div id="tracksSaved">
                         <p>Tracks Saved</p>
-                        <div class="slider" data-slider data-initial-start="50" data-end="200">
+                        <div class="slider" data-slider data-initial-start="50" data-end="100">
                             <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
                             <span class="slider-fill" data-slider-fill></span>
                             <input type="hidden">
