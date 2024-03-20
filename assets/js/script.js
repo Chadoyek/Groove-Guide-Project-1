@@ -3,6 +3,8 @@ $(document).foundation();
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 
+
+
 var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
 var client_secret = '73ca7f76b05e435a933602925a2392e7';
 var url = 'https://accounts.spotify.com/api/token'
