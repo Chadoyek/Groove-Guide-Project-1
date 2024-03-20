@@ -17,6 +17,87 @@ body {
     border-right: 5;
 }
 
+/* .monthlyListeners{
+    display: flex;
+} */
+.listenersInput{
+    width: 100%;
+    display: flex;
+    margin: 30px 0 35px;
+}
+
+.listenersInput .field{
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.field input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--main-color);
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+.listenersInput .separator{
+    width: 130px;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sliderListeners{
+    height: 5px;
+    border-radius: 5px;
+    background: gray;
+    position: relative;
+}
+
+.sliderListeners .progress{
+    height: 5px;
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    border-radius: 5px;
+    background: var(--main-color);
+}
+
+.rangeInput{
+    position: relative;
+}
+
+.rangeInput input{
+    position: absolute;
+    top: -5px;
+    height: 5px;
+    width: 100%;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+
+}
+input[type="range"]::-webkit-slider-thumb{
+    height: 17px;
+    width: 17px;
+    border-radius: 25%;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    background: var(--main-color);
+    
+}
+
+
+
 .card {
     margin-left: 300px;
     margin-top: 50px;

@@ -79,18 +79,38 @@
                             </select>
                         </label>
                     </div><!--#genre-->
-                    <div id="monthlyListeners">
+
+                    <div class="monthlyListeners">
                         <p>Monthly Listeners</p>
-                        <div class="slider" data-slider data-initial-start="50" data-end="200">
+                        <!-- <div class="slider" data-slider data-initial-start="50" data-end="200">
                             <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
                             <span class="slider-fill" data-slider-fill></span>
                             <input type="hidden">
-                          </div>
+                          </div> -->
+                        <div class="listenersInput">
+                            <div class="field">
+                                <span>Min</span>
+                                <input type="number" class="input-min" value="0">
+                            </div>
+                            <div class="separator">-</div>
+                            <div class="field">
+                                <span>Max</span>
+                                <input type="number" class="input-max" value="100000">
+                            </div>
+                        </div>
+                        <div class="sliderListeners">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="rangeInput">
+                            <input type="range" class="range-min" min="0" max="100000" value="22500" step="1000">
+                            <input type="range" class="range-max" min="0" max="100000" value="75000" step="1000">
+
+                        </div>
                     </div>
 
                     <div id="tracksSaved">
                         <p>Tracks Saved</p>
-                        <div class="slider" data-slider data-initial-start="50" data-end="200">
+                        <div class="slider" data-slider data-initial-start="50" data-end="100">
                             <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
                             <span class="slider-fill" data-slider-fill></span>
                             <input type="hidden">
