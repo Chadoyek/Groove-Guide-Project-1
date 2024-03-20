@@ -1,3 +1,54 @@
+// Monthly Listeners Slider
+
+const rangeInput = document.querySelectorAll(".rangeInput Input");
+listenersInput = document.querySelectorAll(".listenersInput Input");
+progress = document.querySelector(".sliderListeners .progress");
+
+let sliderGap = 1000;
+
+listenersInput.forEach(input =>{
+  input.addEventListener("input", e =>{
+    //getting 2 inputs and parsing them to numbers
+    let minVal = parseInt(listenersInput[0].value),
+    maxVal = parseInt(listenersInput[1].value);
+
+    if((maxVal - minVal >= sliderGap) && maxVal <=100000){
+      if(e.target.className === "input-min"){ // if active input is min input
+        rangeInput[0].value = minVal;
+        progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+      }else{
+        rangeInput[1].value = maxVal;
+        progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+      }
+      
+    }
+  });
+})
+rangeInput.forEach(input =>{
+  input.addEventListener("input", e =>{
+    //getting 2 ranges and parsing them to numbers
+    let minVal = parseInt(rangeInput[0].value),
+    maxVal = parseInt(rangeInput[1].value);
+
+    if(maxVal - minVal < sliderGap){
+      if(e.target.className === "range-min"){ // if active slider is min slider
+        rangeInput[0].value = maxVal - sliderGap;
+      }else{
+        rangeInput[1].value = minVal + sliderGap;
+      }
+      
+    }else{
+      listenersInput[0].value = minVal;
+      listenersInput[1].value = maxVal;
+    progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+    progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+
+    }
+
+  })
+})
+
+
 
 $(document).foundation();
 //snagged from spotify's API doc listed here: 
