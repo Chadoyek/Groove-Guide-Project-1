@@ -49,7 +49,6 @@ rangeInput.forEach(input =>{
 })
 
 
-
 $(document).foundation();
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
