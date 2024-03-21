@@ -131,7 +131,7 @@ function getGenres() {
         
 
       });
-  }
+}
 
 //manually set variables for testing
 genre = "country"
@@ -159,7 +159,7 @@ function getApi() {
          
        }
      });
- }
+}
 fetchButton.addEventListener('click', getApi);
 
 //testing our set genre & slider data.
@@ -169,3 +169,4 @@ console.log( "your genre is: " + genre, "and your popularity settings are: "+ po
  //curl --request GET \
  // --url 'https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry&seed_tracks=0c6xIDDpzE81m2q797ordA' \
  // --header 'Authorization: Bearer 1POdFZRZbvb...qqillRxMr2z'
+
