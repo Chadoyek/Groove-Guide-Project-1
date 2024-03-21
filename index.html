@@ -76,6 +76,7 @@
                     <div id="genre">
                         <label>Genre
                             <select id="genreSelect">
+                                <option value="">Select a Genre</option>
                             </select>
                         </label>
                     </div><!--#genre-->
@@ -90,32 +91,33 @@
                         <div class="listenersInput">
                             <div class="field">
                                 <span>Min</span>
-                                <input type="number" class="input-min" value="0">
+                                <input type="number" class="input-min" value="10">
                             </div>
                             <div class="separator">-</div>
                             <div class="field">
                                 <span>Max</span>
-                                <input type="number" class="input-max" value="100000">
+                                <!--<input type="number" class="input-max" value="100000">-->
+                                <input type="number" class="input-max" value="75">
                             </div>
                         </div>
                         <div class="sliderListeners">
                             <div class="progress"></div>
                         </div>
                         <div class="rangeInput">
-                            <input type="range" class="range-min" min="0" max="100000" value="22500" step="1000">
-                            <input type="range" class="range-max" min="0" max="100000" value="75000" step="1000">
+                            <input type="range" class="range-min" min="0" max="100" value="10" step="1">
+                            <input type="range" class="range-max" min="0" max="100" value="75" step="1">
 
                         </div>
                     </div>
 
-                    <div id="tracksSaved">
+                    <!--<div id="tracksSaved">
                         <p id="tracksSaved">Tracks Saved</p>
                         <div class="slider" data-slider data-initial-start="50" data-end="100">
                             <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
                             <span class="slider-fill" data-slider-fill></span>
                             <input type="hidden">
                           </div>
-                    </div>
+                    </div>-->
 
                     <!--<div id="otherTrends">
                         <label>Other Trends
@@ -126,17 +128,53 @@
                               <option value="apollo">Trend 4</option>
                             </select>
                         </label>
-                    </div>>
+                    </div>-->
                     <div class="button" id="fetchButton" >
                         <p>
                          "Guide me"
                         </p> 
-                    </div>-->
+                    </div>
                     <!--#genre-->
                 </div>
 
-                <div id="accordion">
-                    <div class="cell medium-6 large-8">
+                <div id="accordion" class="" style="width: 450px">
+                    <!--<div class="card" style="width: 450px">
+                        <img src="./assets/images/crowd.webp">
+                    </div>-->
+                    
+
+                    <ul class="accordion" id="accordion-ul" data-accordion>
+
+                        <!--<li class="accordion-item is-active" data-accordion-item>
+                        <a href="#" class="accordion-title">Accordion 1</a>
+                        <div class="accordion-content" data-tab-content >
+                            <p>Panel 1. Lorem ipsum dolor</p>
+                            </div>
+                        </li>
+
+                        <li class="accordion-item is-active" data-accordion-item>
+                        <a href="#" class="accordion-title">Accordion 2</a>
+                        <div class="accordion-content" data-tab-content >
+                            <p>Panel 1. Lorem ipsum dolor</p>
+                            </div>
+                        </li>
+
+                        <li class="accordion-item is-active" data-accordion-item>
+                        <a href="#" class="accordion-title">Accordion 3</a>
+                        <div class="accordion-content" data-tab-content >
+                            <p>Panel 1. Lorem ipsum dolor</p>
+                            </div>
+                        </li>
+                        
+                        <li class="accordion-item is-active" data-accordion-item>
+                        <a href="#" class="accordion-title">Accordion 4</a>
+                        <div class="accordion-content" data-tab-content >
+                            <p>Panel 1. Lorem ipsum dolor</p>
+                            </div>
+                        </li>-->
+                    </ul>
+
+                    <!--<div class="cell medium-6 large-8">
                         <div class="card" style="width: 450px">
                             <div class="card-divider">
                           Your Music Results!
@@ -174,16 +212,13 @@
                                         <p>Panel 1. Lorem ipsum dolor</p>
                                         </div>
                                     </li>
-                                  <!-- ... -->
                                 </ul>       
                                 </div>
-                        </div>
+                            </div>
                           
-                            <!--<h4>This is a card.</h4>
-                          <p>It has an easy to override visual style, and is appropriately subdued.</p>-->
                         </div>
                       </div>    
-                </div>
+                </div>-->
             </div><!--grid-x-->
         </main>
         
