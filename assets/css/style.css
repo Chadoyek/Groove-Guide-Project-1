@@ -6,10 +6,42 @@
 
 }
 
+
 body {
     font-family: var(--main-font);
 }
 
+.menu-text {
+    font-family: var(--main-font);
+    transition: transform 0.3s ease;
+}
+
+.menu-text:hover {
+    animation: dance 0.2s infinite alternate;
+}
+@keyframes dance {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(10px);
+    }
+}
+
+
+.top-bar-right a {
+    font-size: 20px;
+    color: inherit; 
+    text-decoration: none; 
+    text-decoration: underline;
+    padding: 20px;
+    
+}
+
+.top-bar-right a:hover{
+    color: whitesmoke;
+    transition-duration: 0.3s;
+}
 
 
 .grid-x{
