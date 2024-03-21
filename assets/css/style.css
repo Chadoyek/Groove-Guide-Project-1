@@ -13,8 +13,9 @@ body {
 
 
 .grid-x{
-    padding: 20px;
+    padding-top: 20px;
     border-right: 5;
+    font-size: 20px;
 }
 
 /* .monthlyListeners{
@@ -96,20 +97,51 @@ input[type="range"]::-webkit-slider-thumb{
     
 }
 
-
-
 .card {
     margin-left: 300px;
     margin-top: 50px;
-
 }
+
+.card-divider {
+    font-size: 20px;
+}
+
 .cell{
     padding: 20px;
 }
 
 .top-bar {
     background-color: var(--main-color);
+    font-size: 35px;
 
 }
 
+.accordion {
+    font-size: 20px;
+}
 
+.accordion-title {
+    font-size: 25px;
+}
+
+.monthlyListeners {
+    font-size: 25px;
+    padding-bottom: 50px;
+    padding-top: 40px;
+}
+
+.genre {
+    font-size: 25px;
+    padding-top: 30px;
+}
+
+.tracksSaved {
+    font-size: 25px;
+    padding-top: 50px;
+}
+
+.genreSelect {
+    font-size: 1.5rem;
+    padding: 5px;
+    line-height: 2rem;
+}
