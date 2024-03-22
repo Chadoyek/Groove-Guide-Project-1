@@ -62,10 +62,10 @@ $(document).ready(function(){
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 
-//var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
-var client_id = 'df9aa5598206496d8f260a29f1738f45';
-//var client_secret = '73ca7f76b05e435a933602925a2392e7';
-var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
+var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
+// var client_id = 'df9aa5598206496d8f260a29f1738f45';
+var client_secret = '73ca7f76b05e435a933602925a2392e7';
+// var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
 var url = 'https://accounts.spotify.com/api/token';
 var form = new URLSearchParams({grant_type: 'client_credentials'});
 
@@ -77,7 +77,10 @@ var fetchButton = document.getElementById("fetchButton");
 //var accordionEl = document.getElementById("accordion-ul");
 var accordionEl = document.querySelector(".accordion");
 var resultsListEl = document.querySelector("#results");
-
+var savedArtists = JSON.parse(localStorage.getItem("Artists"));
+if (!savedArtists) {
+  savedArtists = []
+}
 
 var tracksSaved = document.querySelector('#tracksSaved'); //placeholder variable for tracks saved //Feature to add later? 
 
@@ -197,13 +200,19 @@ function generateArtistCards(data){
 
     var resultsSong = document.createElement("p");
     resultsSong.innerHTML ="<a href='"+songUrl+"' target='_blank'>"+recSong+"</a>";
-    resultsListEl.append(resultsLi, " ", resultsSong);
+    resultsListEl.appendChild(resultsLi, " ", resultsSong);
 
     var saveButton = document.createElement("button");
     saveButton.textContent = "save artist";
+    saveButton.setAttribute("data-artistName", artistName);
+    saveButton.setAttribute("data-spotifyUrl", spotifyUrl);
+    saveButton.setAttribute("data-recSong", recSong);
+    saveButton.setAttribute("data-songUrl", songUrl);
+    resultsListEl.appendChild(saveButton);
     
     //resultsListEl.append(resultsSong);
   }
+
   // //accordionEl.replaceChildren();
   // console.log(data);
   // resultsListEl.replaceChildren();
@@ -250,7 +259,29 @@ function generateArtistCards(data){
    // }
   //});
   $('#accordion').html(accordionEl).accordion({collapsible: true}); 
+} 
+
+// function storeArtist() {
+//   localStorage.setItem("savedArtist", JSON.stringify(savedArtist));
+//   console.log(storeArtist);
+// }
+
+function renderSavedArtist() {
+  // loop through saved artist
 }
+
+// this will be the function called when saved btn is clicked 
+function saveNewArtist(e) {
+  var artistObj = {
+    artistName: e.target.dataset.artistName,
+    spotifyUrl: e.target.dataset.spotifyUrl,
+    recSong:  e.target.dataset.recSong,
+    songUrl: e.target.dataset.songUrl,
+  }
+  savedArtists.push(artistObj);
+  localStorage.setItem("Artists", JSON.stringify(savedArtists));
+}
+
 fetchButton.addEventListener('click', function(){
   if(selectedGenre === ""){
     alert("Please select a Genre to continue!");
