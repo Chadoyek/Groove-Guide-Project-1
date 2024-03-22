@@ -5,7 +5,7 @@ listenersInput = document.querySelectorAll(".listenersInput Input");
 progress = document.querySelector(".sliderListeners .progress");
 
 //let sliderGap = 1000;
-let sliderGap = 100;
+let sliderGap = 5;
 
 listenersInput.forEach(input =>{
   input.addEventListener("input", e =>{
