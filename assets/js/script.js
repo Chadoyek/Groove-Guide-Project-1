@@ -136,6 +136,7 @@ fetch(url, authOptions).then (function(response) {
 
 function getGenres() {
   //get the genres
+
   var requestUrl = 'https://api.spotify.com/v1/recommendations/available-genre-seeds'
 
   fetch(requestUrl, {
@@ -234,3 +235,4 @@ fetchButton.addEventListener('click', function(){
  //curl --request GET \
  // --url 'https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry&seed_tracks=0c6xIDDpzE81m2q797ordA' \
  // --header 'Authorization: Bearer 1POdFZRZbvb...qqillRxMr2z'
+
