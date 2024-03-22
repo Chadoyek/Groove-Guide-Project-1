@@ -136,6 +136,7 @@ fetch(url, authOptions).then (function(response) {
 
 function getGenres() {
   //get the genres
+
   var requestUrl = 'https://api.spotify.com/v1/recommendations/available-genre-seeds'
 
   fetch(requestUrl, {
@@ -180,27 +181,55 @@ function getApi(selectedGenre, minPop, maxPop) {
 }
 
 function generateArtistCards(data){
-  //accordionEl.replaceChildren();
-  resultsListEl.replaceChildren();
-  Object.entries(data.tracks).forEach(([key, value]) => {
-    var artistsArray = value.artists;
-    //for(i=0; i<artistsArray.length; i++){
-    for(i=0; i<10; i++){
-      var artistName = artistsArray[i].name;
-      var spotifyUrl = artistsArray[i].external_urls.spotify;
 
-      //populate the card variables based on fetch request
-      //generate the cards
+  for (var i=0; i<5; i++){
+    console.log(data.tracks[i]);
+    var artistName = data.tracks[i].artists[0].name;
+    var spotifyUrl = data.tracks[i].artists[0].external_urls.spotify;
+    var recSong    = data.tracks[i].name;
+    var songUrl    = data.tracks[i].external_urls.spotify;
 
-      var resultsLi = document.createElement("li");
-      //resultsLi.classList.add("accordion-item");
-      //resultsLi.setAttribute("data", "accordion-item");
-      resultsListEl.append(resultsLi);
-      resultsLi.innerHTML = "<a href='"+spotifyUrl+"' target='_blank'>"+artistName+"</a>";
-      //resultsLi.append(artistName);
+    var resultsLi = document.createElement("li");
+    //resultsLi.classList.add("accordion-item");
+    //resultsLi.setAttribute("data", "accordion-item");
+    
+    resultsLi.innerHTML = "<a href='"+spotifyUrl+"' target='_blank'>"+artistName+"</a>";
 
+    var resultsSong = document.createElement("p");
+    resultsSong.innerHTML ="<a href='"+songUrl+"' target='_blank'>"+recSong+"</a>";
+    resultsListEl.append(resultsLi, " ", resultsSong);
+
+    var saveButton = document.createElement("button");
+    saveButton.textContent = "save artist";
+    
+    //resultsListEl.append(resultsSong);
+  }
+  // //accordionEl.replaceChildren();
+  // console.log(data);
+  // resultsListEl.replaceChildren();
+  // Object.entries(data.tracks).forEach(([key, value]) => {
+  //   var artistsArray = value.artists;
+  //   console.log (value);
+  //   //for(i=0; i<artistsArray.length; i++){
+  //   for(i=0; i<10; i++){
+  //     var artistName = artistsArray[i].name;
+  //     var spotifyUrl = artistsArray[i].external_urls.spotify;
+  //     //var artistSong = artistsArray[i].name; //to be added
+
+  //     //populate the card variables based on fetch request
+  //     //generate the cards
+
+  //     var resultsLi = document.createElement("p");
+  //     //resultsLi.classList.add("accordion-item");
+  //     //resultsLi.setAttribute("data", "accordion-item");
+  //     resultsListEl.append(resultsLi);
+  //     resultsLi.innerHTML = "<a href='"+spotifyUrl+"' target='_blank'>"+artistName+"</a>";
+  //     //resultsLi.append(artistName);
+  //     //var resultsSong = document.createElement("li");
+  //     //resultsListEl.append(resultsSong);
+  //     //resultsSong.innerHTML ="<a href='"+spotifyUrl+"' target='_blank'>"+artistSong+"</a>";
       
-    // var accordionLi = document.createElement("li");
+  //   // var accordionLi = document.createElement("li");
     // accordionLi.classList.add("accordion-item");
     // accordionLi.setAttribute("data", "accordion-item");
 
@@ -211,15 +240,15 @@ function generateArtistCards(data){
     // var accordionDiv = document.createElement("div");
     // accordionDiv.classList.add("accordion-content");
     // accordionDiv.setAttribute("data", "data-tab-content");
-    // //accordionDiv.innerHTML = "<p>"+spotifyUrl+"</p>";
-    // accordionDiv.innerHTML = "<p><a href='"+spotifyUrl+"'>Open in Spotify</a></p>";
+    // //accordionDiv.innerHTML = "<p"+spotifyUrl+"</p";
+    // accordionDiv.innerHTML = "<p<a href='"+spotifyUrl+"'Open in Spotify</a</p";
 
     // accordionEl.append(accordionLi);
     // accordionLi.append(accordionTitle);
     // accordionLi.append(accordionDiv);
 
-    }
-  });
+   // }
+  //});
   $('#accordion').html(accordionEl).accordion({collapsible: true}); 
 } 
 
@@ -235,3 +264,4 @@ fetchButton.addEventListener('click', function(){
  //curl --request GET \
  // --url 'https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry&seed_tracks=0c6xIDDpzE81m2q797ordA' \
  // --header 'Authorization: Bearer 1POdFZRZbvb...qqillRxMr2z'
+
