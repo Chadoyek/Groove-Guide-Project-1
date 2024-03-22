@@ -2,12 +2,12 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Groove Guide</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- foundation-float.min.css: Compressed CSS with legacy Float Grid -->
@@ -27,68 +27,99 @@
 
         <!-- Compressed JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-
+        <script src="https://bucky-cors-proxy.herokuapp.com/fetch.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="assets/css/style.css">
+        <script>
+            $( function() {
+              $( "#accordion" ).accordion();
+            } );
+        </script>
+        
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <header>
+        
             <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
                 <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
                 <div class="title-bar-title">Menu</div>
-            </div>
+                </div>
               
-            <div class="top-bar" id="responsive-menu">
-            <div class="top-bar-left">
+                <div class="top-bar" id="responsive-menu">
+                <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu>
-                <li class="menu-text">Site Title</li>
+                <li class="menu-text">Groove Guide</li>
                 </ul>
-            </div>
-            <div class="top-bar-right">
+                </div>
+
+                <div class="top-bar-right">
                 <ul class="menu">
-                <li><a href="#0">Featured Artist</a></li>
-                <li><a href="#0">About Us</a></li>
+                <li><a href="saved_artists.html">Saved Artists</a></li>
+                <!--<li><a href="#0">About Us</a></li>
                 <li><a href="#0">Contact</a></li>
                 <li><input type="search" placeholder="Search"></li>
-                <li><button type="button" class="button">Search</button></li>
+                <li><button type="button" class="button">Search</button></li>-->
                 </ul>
-            </div><!--top-bar-right-->
+                </div><!--top-bar-right-->
+
             </div><!--#responsive-menu-->
+       
+
+        </div>
         </header>
         <main>
             <div class="grid-x">
                 <div class="cell medium-6 large-4">
                     <div id="genre">
                         <label>Genre
-                            <select>
-                              <option value="husker">Genre 1</option>
-                              <option value="starbuck">Genre 2</option>
-                              <option value="hotdog">Genre 3</option>
-                              <option value="apollo">Genre 4</option>
+                            <select id="genreSelect">
+                                <option value="">Select a Genre</option>
                             </select>
                         </label>
                     </div><!--#genre-->
-                    <div id="monthlyListeners">
+
+                    <div class="monthlyListeners">
                         <p>Monthly Listeners</p>
-                        <div class="slider" data-slider data-initial-start="50" data-end="200">
+                        <!-- <div class="slider" data-slider data-initial-start="50" data-end="200">
+                            <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
+                            <span class="slider-fill" data-slider-fill></span>
+                            <input type="hidden">
+                          </div> -->
+                        <div class="listenersInput">
+                            <div class="field">
+                                <span>Min</span>
+                                <input type="number" class="input-min" value="10">
+                            </div>
+                            <div class="separator">-</div>
+                            <div class="field">
+                                <span>Max</span>
+                                <!--<input type="number" class="input-max" value="100000">-->
+                                <input type="number" class="input-max" value="75">
+                            </div>
+                        </div>
+                        <div class="sliderListeners">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="rangeInput">
+                            <input type="range" class="range-min" min="0" max="100" value="10" step="1">
+                            <input type="range" class="range-max" min="0" max="100" value="75" step="1">
+
+                        </div>
+                    </div>
+
+                    <!--<div id="tracksSaved">
+                        <p id="tracksSaved">Tracks Saved</p>
+                        <div class="slider" data-slider data-initial-start="50" data-end="100">
                             <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
                             <span class="slider-fill" data-slider-fill></span>
                             <input type="hidden">
                           </div>
-                    </div>
+                    </div>-->
 
-                    <div id="tracksSaved">
-                        <p>Tracks Saved</p>
-                        <div class="slider" data-slider data-initial-start="50" data-end="200">
-                            <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
-                            <span class="slider-fill" data-slider-fill></span>
-                            <input type="hidden">
-                          </div>
-                    </div>
-
-                    <div id="otherTrends">
+                    <!--<div id="otherTrends">
                         <label>Other Trends
                             <select>
                               <option value="husker">Trend 1</option>
@@ -97,20 +128,52 @@
                               <option value="apollo">Trend 4</option>
                             </select>
                         </label>
-                    </div><!--#genre-->
+                    </div>-->
+                    
+                    <div class="button" id="fetchButton" >Guide me
+                    </div><!--fetchButton-->
+                    <!--#genre-->
                 </div>
+                
+                 <!--<div id="accordion-div" class="" style="width: 450px">
+                    <div class="card" style="width: 450px">
+                        <img src="./assets/images/crowd.webp">
+                    </div>
+                    <ul class="accordion" data-accordion>
+
+                        <li class="accordion-item" data-accordion-item>
+                            <a href="#" class="accordion-title">Accordion 1</a>
+                            <div class="accordion-content" data-tab-content >
+                                <p>Panel 1. Lorem ipsum dolor</p>
+                            </div>
+                        </li>
+
+                        <li class="accordion-item" data-accordion-item>
+                            <a href="#" class="accordion-title">Accordion 2</a>
+                            <div class="accordion-content" data-tab-content >
+                                <p>Panel 2. Lorem ipsum dolor</p>
+                                </div>
+                        </li>
+                       
+                    </ul>
+	            </div>-->
                 <div class="cell medium-6 large-8">
-                    <div class="card" style="width: 300px;">
+                    <div class="card" style="width: 450px">
                         <div class="card-divider">
-                          This is a header
+                        Your Music Results!
+                    </div>
+                    <img src="./assets/images/crowd.webp">
+                    <div class="card-section" id="test-card">
+                        <div class="row">
+                            <div class="columns">
+                                <ul id="results">
+            
+                                </ul>
+                            </div>
                         </div>
-                        <img src="assets/img/generic/rectangle-1.jpg">
-                        <div class="card-section">
-                          <h4>This is a card.</h4>
-                          <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                        </div>
-                      </div>    
+                    </div>
                 </div>
+                
             </div><!--grid-x-->
         </main>
         
