@@ -132,7 +132,7 @@ function getGenres() {
 
       });
 }
-
+//comment
 //manually set variables for testing
 genre = "country"
 minPop = 0
