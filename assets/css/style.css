@@ -183,3 +183,15 @@ input[type="range"]::-webkit-slider-thumb{
     padding: 5px;
     line-height: 2rem;
 }
+
+#savedArtists {
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+}
+
+#Artist {
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+}

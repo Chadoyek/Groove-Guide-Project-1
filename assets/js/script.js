@@ -77,10 +77,11 @@ var fetchButton = document.getElementById("fetchButton");
 //var accordionEl = document.getElementById("accordion-ul");
 var accordionEl = document.querySelector(".accordion");
 var resultsListEl = document.querySelector("#results");
-var savedArtists = JSON.parse(localStorage.getItem("Artists"));
+var savedArtists = JSON.parse(localStorage.getItem("#Artists"));
 if (!savedArtists) {
   savedArtists = []
 }
+
 
 var tracksSaved = document.querySelector('#tracksSaved'); //placeholder variable for tracks saved //Feature to add later? 
 
@@ -209,6 +210,11 @@ function generateArtistCards(data){
     saveButton.setAttribute("data-recSong", recSong);
     saveButton.setAttribute("data-songUrl", songUrl);
     resultsListEl.appendChild(saveButton);
+
+    // localStorage.setItem("li", resultsLi);
+
+    // window.location.href = "saved_artists.html";
+
     
     //resultsListEl.append(resultsSong);
   }
@@ -266,9 +272,42 @@ function generateArtistCards(data){
 //   console.log(storeArtist);
 // }
 
-function renderSavedArtist() {
+function renderSavedArtist(data) {
   // loop through saved artist
+  for (var i=0; i<5; i++){
+    console.log(data.tracks)
+  }
+  resultsLi = document.createElement("li");
+
+  for (var i = 0; i < artistObj.length; i++) {
+    var saved = savedArtists[i];
+
+    var li = document.createElement("li");
+    li.textContent = saved;
+    li.setAttribute("data-index", i);
+
+    li.appendChild();
+    saved.appendChild(li);
+  }
 }
+
+// function init () {
+//   resultsListEl = JSON.parse(localStorage.getItem("#Artists"));
+//   if (resultsListEl !== null) {
+//     savedArtists = resultsListEl;
+//   }
+//   renderSavedArtist();
+// }
+
+// saveButton.addEventListener("click", function(e) {
+//   artistObj = e.target;
+//   if (savedArtists === "") {
+
+//     saveNewArtist();m
+//     renderSavedArtist();
+//   }
+// }) 
+
 
 // this will be the function called when saved btn is clicked 
 function saveNewArtist(e) {
@@ -279,8 +318,14 @@ function saveNewArtist(e) {
     songUrl: e.target.dataset.songUrl,
   }
   savedArtists.push(artistObj);
-  localStorage.setItem("Artists", JSON.stringify(savedArtists));
+  localStorage.setItem("#Artists", JSON.stringify(savedArtists));
+
+  window.location.href = "saved_artists.html";
+
 }
+
+// init();
+
 
 fetchButton.addEventListener('click', function(){
   if(selectedGenre === ""){

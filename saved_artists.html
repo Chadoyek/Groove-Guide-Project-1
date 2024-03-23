@@ -30,11 +30,11 @@
         <script src="https://bucky-cors-proxy.herokuapp.com/fetch.js"></script>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <script>
+        <!-- <script>
             $( function() {
               $( "#accordion" ).accordion();
             } );
-        </script>
+        </script> -->
         
     </head>
     <body>
@@ -44,9 +44,9 @@
         <header>
         
             <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-                <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+                <!-- <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
                 <div class="title-bar-title">Menu</div>
-                </div>
+                </div> -->
               
                 <div class="top-bar" id="responsive-menu">
                 <div class="top-bar-left">
@@ -55,7 +55,7 @@
                 </ul>
                 </div>
 
-                <div class="top-bar-right">
+                <!-- <div class="top-bar-right">
                 <ul class="menu">
                 <li><a href="saved_artists.html">Saved Artists</a></li>
                 <!--<li><a href="#0">About Us</a></li>
@@ -63,10 +63,17 @@
                 <li><input type="search" placeholder="Search"></li>
                 <li><button type="button" class="button">Search</button></li>-->
                 </ul>
-                </div><!--top-bar-right-->
+                <!-- </div>top-bar-right --> 
 
             </div><!--#responsive-menu-->
        
-
-        </div>
         </header>
+        <main id="saveButton" class="columns">Your Saved Artists
+            <ul id="results"> </ul>
+            
+            
+        </main>
+
+        
+    </body>
+</html>    
