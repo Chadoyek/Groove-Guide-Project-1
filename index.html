@@ -26,17 +26,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.8.1/js/plugins/foundation.dropdown.min.js" integrity="sha512-jnlOe8r+yp8lyowSsUEg54AJ5TJcsMoe4BXYbmkVimXUXRPDmYnfBnNdTG00pAT1X2g1eeWPUzC5cab8p+z2ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
 
         <!-- Compressed JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
         <script src="https://bucky-cors-proxy.herokuapp.com/fetch.js"></script>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <script>
-            $( function() {
-              $( "#accordion" ).accordion();
-            } );
-        </script>
         
     </head>
     <body>
@@ -83,7 +79,7 @@
                 
         
                 <div class="top-bar-right">
-                        <a href="#0">Saved Artists</a>
+                        <a href="saved_artists.html">Saved Artists</a>
                     </ul>
                 </div>
             </div>
@@ -156,29 +152,10 @@
                     <!--#genre-->
                 </div>
                 
-                 <!--<div id="accordion-div" class="" style="width: 450px">
-                    <div class="card" style="width: 450px">
-                        <img src="./assets/images/crowd.webp">
-                    </div>
-                    <ul class="accordion" data-accordion>
-
-                        <li class="accordion-item" data-accordion-item>
-                            <a href="#" class="accordion-title">Accordion 1</a>
-                            <div class="accordion-content" data-tab-content >
-                                <p>Panel 1. Lorem ipsum dolor</p>
-                            </div>
-                        </li>
-
-                        <li class="accordion-item" data-accordion-item>
-                            <a href="#" class="accordion-title">Accordion 2</a>
-                            <div class="accordion-content" data-tab-content >
-                                <p>Panel 2. Lorem ipsum dolor</p>
-                                </div>
-                        </li>
-                       
-                    </ul>
-	            </div>-->
                 <div class="cell medium-6 large-8">
+                    <div id="dialog" title="Genre Missing">
+                        <p>Please select a Genre to continue!</p>
+                      </div>
                     <div class="card" style="width: 450px">
                         <div class="card-divider">
                         Your Music Results!
