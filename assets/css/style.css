@@ -195,6 +195,7 @@ input[type="range"]::-webkit-slider-thumb{
     padding: 20px;
     display: flex;
 }
+
 #saved_artists_display{
     display: flex;
     flex-wrap: wrap;
@@ -209,4 +210,12 @@ input[type="range"]::-webkit-slider-thumb{
     min-width: 250px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.save_artist {
+    cursor: pointer;
+}
+
+.save_artist.selected {
+    color: #a41b4c;
 }
