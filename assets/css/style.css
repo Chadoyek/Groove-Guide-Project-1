@@ -195,3 +195,18 @@ input[type="range"]::-webkit-slider-thumb{
     padding: 20px;
     display: flex;
 }
+#saved_artists_display{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.artist_info{
+    padding: 20px;
+    border: #ccc 5px groove;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

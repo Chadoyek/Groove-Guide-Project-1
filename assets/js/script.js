@@ -56,30 +56,49 @@ rangeInput.forEach(input =>{
   })
 })
 
-$(document).ready(function(){
-  $(document).foundation();
-});
+
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 
 var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
-// var client_id = 'df9aa5598206496d8f260a29f1738f45';
+//var client_id = 'df9aa5598206496d8f260a29f1738f45';
 var client_secret = '73ca7f76b05e435a933602925a2392e7';
-// var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
+//var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
 var url = 'https://accounts.spotify.com/api/token';
 var form = new URLSearchParams({grant_type: 'client_credentials'});
+var artists_output = "";
 
 /* Element Selectors */
 var minPopRangeEl = document.querySelector(".range-min");
 var maxPopRangeEl = document.querySelector(".range-max");
 var selectEl = document.getElementById("genreSelect");
 var fetchButton = document.getElementById("fetchButton");
-//var accordionEl = document.getElementById("accordion-ul");
 var accordionEl = document.querySelector(".accordion");
 var resultsListEl = document.querySelector("#results");
+<<<<<<< HEAD
 var savedArtists = JSON.parse(localStorage.getItem("#Artists"));
+=======
+var savedArtistsDisplayEl = document.querySelector("#saved_artists_display");
+
+var saveButton = "";
+
+var savedArtists = JSON.parse(localStorage.getItem("savedArtists"));
+>>>>>>> origin
 if (!savedArtists) {
-  savedArtists = []
+  savedArtists = [];
+}
+
+if(savedArtists){
+  for(i=0; i<savedArtists.length; i++){
+    artists_output += "<div class='artist_info'>";
+    artists_output += "<p>Artist: <a href='"+savedArtists[i].spotifyUrl+"' target='_blank'>"+savedArtists[i].artistName+"</a></p>";
+    artists_output += "<p>Song: <a href='"+savedArtists[i].recSong+"' target='_blank'>"+savedArtists[i].recSong+"</a></p>";
+    artists_output += "</div>";
+  }
+
+  if(savedArtistsDisplayEl){
+    savedArtistsDisplayEl.innerHTML = artists_output;
+  }
 }
 
 
@@ -89,6 +108,25 @@ var tracksSaved = document.querySelector('#tracksSaved'); //placeholder variable
 var selectedGenre = "";
 var minPop = document.querySelector(".input-min").value;
 var maxPop = document.querySelector(".input-max").value;
+
+$(document).ready(function(){
+  $(document).foundation();
+
+  // this initializes the dialog (and uses some common options that I do)
+  $("#dialog").dialog({
+    autoOpen : false, modal : true, show : "blind", hide : "blind"
+  });
+
+  $("#fetchButton").click(function(){
+    var isConfirmed = true;
+    if(selectedGenre === ""){
+      isConfirmed = false;
+      $( "#dialog" ).dialog("open");
+    }
+    getApi(selectedGenre, minPop, maxPop);
+  });
+});
+
 
 selectEl.addEventListener('change', function() {
   selectedGenre = this.value;
@@ -158,7 +196,7 @@ function getGenres() {
       for (var i = 0; i < value.length; i++) {
         //populate the genre variables based on fetch request
         var optionEl = document.createElement("option");
-        optionEl.textContent = value[i];
+        optionEl.textContent = value[i].toUpperCase();
         optionEl.value = value[i];
         selectEl.append(optionEl)            
       }
@@ -194,8 +232,6 @@ function generateArtistCards(data){
     var songUrl    = data.tracks[i].external_urls.spotify;
 
     var resultsLi = document.createElement("li");
-    //resultsLi.classList.add("accordion-item");
-    //resultsLi.setAttribute("data", "accordion-item");
     
     resultsLi.innerHTML = "<a href='"+spotifyUrl+"' target='_blank'>"+artistName+"</a>";
 
@@ -203,13 +239,16 @@ function generateArtistCards(data){
     resultsSong.innerHTML ="<a href='"+songUrl+"' target='_blank'>"+recSong+"</a>";
     resultsListEl.appendChild(resultsLi, " ", resultsSong);
 
-    var saveButton = document.createElement("button");
+    //var saveButton = document.createElement("button");
+    saveButton = document.createElement("button");
+    saveButton.className = "save_artist";
     saveButton.textContent = "save artist";
     saveButton.setAttribute("data-artistName", artistName);
     saveButton.setAttribute("data-spotifyUrl", spotifyUrl);
     saveButton.setAttribute("data-recSong", recSong);
     saveButton.setAttribute("data-songUrl", songUrl);
     resultsListEl.appendChild(saveButton);
+<<<<<<< HEAD
 
     // localStorage.setItem("li", resultsLi);
 
@@ -217,8 +256,13 @@ function generateArtistCards(data){
 
     
     //resultsListEl.append(resultsSong);
+=======
+>>>>>>> origin
   }
+  saveArtists();
+}//generateArtists
 
+<<<<<<< HEAD
   // //accordionEl.replaceChildren();
   // console.log(data);
   // resultsListEl.replaceChildren();
@@ -334,6 +378,35 @@ fetchButton.addEventListener('click', function(){
   getApi(selectedGenre, minPop, maxPop);
 });
 
+=======
+function saveArtists(){
+  var saveArtistButton = document.querySelectorAll(".save_artist");
+  for(i=0; i<saveArtistButton.length; i++){
+    saveArtistButton[i].addEventListener("click", function(e) {
+      console.log("Save button clicked.");
+      artistObj = e.target;
+      saveNewArtist(artistObj);
+     }) 
+  }
+  
+}
+
+function saveNewArtist(artistObj) {
+  console.log(artistObj);
+  var artistArray = {
+    artistName: artistObj.dataset.artistname,
+    spotifyUrl: artistObj.dataset.spotifyurl,
+    recSong:  artistObj.dataset.recsong,
+    songUrl: artistObj.dataset.songurl,
+  }
+
+  console.log(artistArray);
+
+  savedArtists.push(artistArray);
+  localStorage.setItem("savedArtists", JSON.stringify(savedArtists));
+}
+ 
+>>>>>>> origin
 //testing our set genre & slider data.
 // how the request should look
  //curl --request GET \
