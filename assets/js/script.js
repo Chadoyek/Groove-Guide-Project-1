@@ -255,11 +255,13 @@ function saveArtists(){
   for(i=0; i<saveArtistButton.length; i++){
     saveArtistButton[i].addEventListener("click", function(e) {
       console.log("Save button clicked.");
+    this.style.color = "#a41b4c";
       artistObj = e.target;
       saveNewArtist(artistObj);
      }) 
   }
 }
+
 
 function saveNewArtist(artistObj) {
   console.log(artistObj);
@@ -275,6 +277,8 @@ function saveNewArtist(artistObj) {
   savedArtists.push(artistArray);
   localStorage.setItem("savedArtists", JSON.stringify(savedArtists));
 }
+
+
  
 //testing our set genre & slider data.
 // how the request should look
