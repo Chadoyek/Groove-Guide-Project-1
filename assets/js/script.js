@@ -66,6 +66,7 @@ var client_secret = '73ca7f76b05e435a933602925a2392e7';
 //var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
 var url = 'https://accounts.spotify.com/api/token';
 var form = new URLSearchParams({grant_type: 'client_credentials'});
+var artists_output = "";
 
 /* Element Selectors */
 var minPopRangeEl = document.querySelector(".range-min");
@@ -74,9 +75,26 @@ var selectEl = document.getElementById("genreSelect");
 var fetchButton = document.getElementById("fetchButton");
 var accordionEl = document.querySelector(".accordion");
 var resultsListEl = document.querySelector("#results");
-var savedArtists = JSON.parse(localStorage.getItem("Artists"));
+var savedArtistsDisplayEl = document.querySelector("#saved_artists_display");
+
+var saveButton = "";
+
+var savedArtists = JSON.parse(localStorage.getItem("savedArtists"));
 if (!savedArtists) {
-  savedArtists = []
+  savedArtists = [];
+}
+
+if(savedArtists){
+  for(i=0; i<savedArtists.length; i++){
+    artists_output += "<div class='artist_info'>";
+    artists_output += "<p>Artist: <a href='"+savedArtists[i].spotifyUrl+"' target='_blank'>"+savedArtists[i].artistName+"</a></p>";
+    artists_output += "<p>Song: <a href='"+savedArtists[i].recSong+"' target='_blank'>"+savedArtists[i].recSong+"</a></p>";
+    artists_output += "</div>";
+  }
+
+  if(savedArtistsDisplayEl){
+    savedArtistsDisplayEl.innerHTML = artists_output;
+  }
 }
 
 var tracksSaved = document.querySelector('#tracksSaved'); //placeholder variable for tracks saved //Feature to add later? 
@@ -103,6 +121,7 @@ $(document).ready(function(){
     getApi(selectedGenre, minPop, maxPop);
   });
 });
+
 
 selectEl.addEventListener('change', function() {
   selectedGenre = this.value;
@@ -215,17 +234,46 @@ function generateArtistCards(data){
     resultsSong.innerHTML ="<a href='"+songUrl+"' target='_blank'>"+recSong+"</a>";
     resultsListEl.appendChild(resultsLi, " ", resultsSong);
 
-    var saveButton = document.createElement("button");
+    //var saveButton = document.createElement("button");
+    saveButton = document.createElement("button");
+    saveButton.className = "save_artist";
     saveButton.textContent = "save artist";
     saveButton.setAttribute("data-artistName", artistName);
     saveButton.setAttribute("data-spotifyUrl", spotifyUrl);
     saveButton.setAttribute("data-recSong", recSong);
     saveButton.setAttribute("data-songUrl", songUrl);
     resultsListEl.appendChild(saveButton);
-    
   }
+  saveArtists();
+}//generateArtists
+
+function saveArtists(){
+  var saveArtistButton = document.querySelectorAll(".save_artist");
+  for(i=0; i<saveArtistButton.length; i++){
+    saveArtistButton[i].addEventListener("click", function(e) {
+      console.log("Save button clicked.");
+      artistObj = e.target;
+      saveNewArtist(artistObj);
+     }) 
+  }
+  
 }
 
+function saveNewArtist(artistObj) {
+  console.log(artistObj);
+  var artistArray = {
+    artistName: artistObj.dataset.artistname,
+    spotifyUrl: artistObj.dataset.spotifyurl,
+    recSong:  artistObj.dataset.recsong,
+    songUrl: artistObj.dataset.songurl,
+  }
+
+  console.log(artistArray);
+
+  savedArtists.push(artistArray);
+  localStorage.setItem("savedArtists", JSON.stringify(savedArtists));
+}
+ 
 //testing our set genre & slider data.
 // how the request should look
  //curl --request GET \
