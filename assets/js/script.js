@@ -97,6 +97,7 @@ if(savedArtists){
   }
 }
 
+
 var tracksSaved = document.querySelector('#tracksSaved'); //placeholder variable for tracks saved //Feature to add later? 
 
 /* Global Variables */
@@ -243,21 +244,24 @@ function generateArtistCards(data){
     saveButton.setAttribute("data-recSong", recSong);
     saveButton.setAttribute("data-songUrl", songUrl);
     resultsListEl.appendChild(saveButton);
+
   }
   saveArtists();
 }//generateArtists
+
 
 function saveArtists(){
   var saveArtistButton = document.querySelectorAll(".save_artist");
   for(i=0; i<saveArtistButton.length; i++){
     saveArtistButton[i].addEventListener("click", function(e) {
       console.log("Save button clicked.");
+    this.style.color = "#a41b4c";
       artistObj = e.target;
       saveNewArtist(artistObj);
      }) 
   }
-  
 }
+
 
 function saveNewArtist(artistObj) {
   console.log(artistObj);
@@ -273,6 +277,8 @@ function saveNewArtist(artistObj) {
   savedArtists.push(artistArray);
   localStorage.setItem("savedArtists", JSON.stringify(savedArtists));
 }
+
+
  
 //testing our set genre & slider data.
 // how the request should look
