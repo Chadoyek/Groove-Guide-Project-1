@@ -22,16 +22,6 @@ listenersInput.forEach(input =>{
         progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
       }
     }
-
-    //if((maxVal - minVal >= sliderGap) && maxVal <=100000){
-    //  if(e.target.className === "input-min"){ // if active input is min input
-    //    rangeInput[0].value = minVal;
-    //    progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
-    //  }else{
-    //    rangeInput[1].value = maxVal;
-    //    progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-    //  }
-    //}
   });
 })
 rangeInput.forEach(input =>{
