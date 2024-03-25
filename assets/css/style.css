@@ -3,23 +3,57 @@
 :root{
     --main-color: #a41b4c;
     --main-font:'Luckiest Guy', sans-serif;
-
 }
 
 body {
     font-family: var(--main-font);
 }
 
+.menu-text {
+    font-family: var(--main-font);
+    transition: transform 0.3s ease;
+}
+
+.menu-text:hover {
+    animation: dance 0.2s infinite alternate;
+}
+@keyframes dance {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(10px);
+    }
+}
+
+
+.top-bar-right a {
+    font-size: 20px;
+    color: inherit; 
+    text-decoration: none; 
+    text-decoration: underline;
+    padding: 20px;
+    
+}
+
+.top-bar-right a:hover{
+    color: whitesmoke;
+    transition-duration: 0.3s;
+}
+
+#popularityNote {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    padding: 0;
+}
 
 
 .grid-x{
-    padding: 20px;
+    padding-top: 20px;
     border-right: 5;
+    font-size: 20px;
 }
 
-/* .monthlyListeners{
-    display: flex;
-} */
 .listenersInput{
     width: 100%;
     display: flex;
@@ -43,17 +77,18 @@ body {
     border-radius: 5px;
     border: 1px solid var(--main-color);
 }
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button{
     -webkit-appearance: none;
 }
+
 .listenersInput .separator{
     width: 130px;
     display: flex;
     font-size: 20px;
     align-items: center;
     justify-content: center;
-
 }
 
 .sliderListeners{
@@ -65,7 +100,7 @@ input[type="number"]::-webkit-inner-spin-button{
 
 .sliderListeners .progress{
     height: 5px;
-    left: 25%;
+    left: 10%;
     right: 25%;
     position: absolute;
     border-radius: 5px;
@@ -93,23 +128,80 @@ input[type="range"]::-webkit-slider-thumb{
     pointer-events: auto;
     -webkit-appearance: none;
     background: var(--main-color);
-    
 }
-
-
 
 .card {
     margin-left: 300px;
     margin-top: 50px;
-
 }
-.cell{
+
+.card-divider {
+    font-size: 20px;
+}
+
+.cell {
     padding: 20px;
 }
 
 .top-bar {
     background-color: var(--main-color);
-
+    font-size: 35px;
 }
 
+.monthlyListeners {
+    font-size: 25px;
+    padding-bottom: 50px;
+    padding-top: 40px;
+}
 
+.genre {
+    font-size: 25px;
+    padding-top: 30px;
+}
+
+.tracksSaved {
+    font-size: 25px;
+    padding-top: 50px;
+}
+
+.genreSelect {
+    font-size: 1.5rem;
+    padding: 5px;
+    line-height: 2rem;
+}
+
+#savedArtists {
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+}
+
+#Artist {
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+}
+
+#saved_artists_display{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.artist_info{
+    padding: 20px;
+    border: #ccc 5px groove;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.save_artist {
+    cursor: pointer;
+}
+
+.save_artist.selected {
+    color: #a41b4c;
+}
