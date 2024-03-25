@@ -218,7 +218,6 @@ input[type="range"]::-webkit-slider-thumb{
 
 #results li {
     margin-bottom: 20px;
-    border: solid black;
 }
 
 .fetchButton {

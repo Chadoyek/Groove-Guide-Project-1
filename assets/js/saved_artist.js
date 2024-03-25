@@ -21,7 +21,6 @@ if(savedArtists){
   }
 }
 
-
 var clearSavedEl = document.querySelector("#clear_saved");
   clearSavedEl.addEventListener("click", function() {
     console.log("Clear Saved button clicked!");
