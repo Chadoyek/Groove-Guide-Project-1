@@ -50,10 +50,10 @@ rangeInput.forEach(input =>{
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 
-//var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
-var client_id = 'df9aa5598206496d8f260a29f1738f45';
-//var client_secret = '73ca7f76b05e435a933602925a2392e7';
-var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
+var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
+//var client_id = 'df9aa5598206496d8f260a29f1738f45';
+var client_secret = '73ca7f76b05e435a933602925a2392e7';
+//var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
 var url = 'https://accounts.spotify.com/api/token';
 var form = new URLSearchParams({grant_type: 'client_credentials'});
 var artists_output = "";
@@ -227,21 +227,22 @@ function generateArtistCards(data){
     var songUrl    = data.tracks[i].external_urls.spotify;
 
     var resultsLi = document.createElement("li");
-    resultsLi.innerHTML = "<a href='"+spotifyUrl+"' target='_blank'>"+artistName+"</a>";
+    resultsLi.innerHTML += "<a href='"+spotifyUrl+"' target='_blank'>"+artistName+"</a> <br />";
 
-    var resultsSong = document.createElement("p");
-    resultsSong.innerHTML ="<a href='"+songUrl+"' target='_blank'>"+recSong+"</a>";
-    resultsListEl.appendChild(resultsLi, " ", resultsSong);
+    //var resultsSong = document.createElement("p");
+    //resultsSong.innerHTML ="<a href='"+songUrl+"' target='_blank'>"+recSong+"</a>";
+    //resultsListEl.appendChild(resultsLi, " ", resultsSong);
 
     //var saveButton = document.createElement("button");
     saveButton = document.createElement("button");
     saveButton.className = "save_artist";
-    saveButton.textContent = "save_artist";
+    saveButton.textContent = "save artist";
     saveButton.setAttribute("data-artistName", artistName);
     saveButton.setAttribute("data-spotifyUrl", spotifyUrl);
     saveButton.setAttribute("data-recSong", recSong);
     saveButton.setAttribute("data-songUrl", songUrl);
-    resultsListEl.appendChild(saveButton);
+    resultsLi.append(saveButton);
+    resultsListEl.append(resultsLi);
 
   }
   saveArtists();
@@ -271,7 +272,6 @@ function saveNewArtist(artistObj) {
   }
 
   console.log(artistArray);
-
   savedArtists.push(artistArray);
   localStorage.setItem("savedArtists", JSON.stringify(savedArtists));
 }
