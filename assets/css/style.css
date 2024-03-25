@@ -33,6 +33,7 @@ body {
     text-decoration: none; 
     text-decoration: underline;
     padding: 20px;
+    color: #1779ba;
     
 }
 
@@ -146,6 +147,11 @@ input[type="range"]::-webkit-slider-thumb{
 .top-bar {
     background-color: var(--main-color);
     font-size: 35px;
+    color: #1179ba;
+}
+
+.top-bar i {
+    color: black;
 }
 
 .monthlyListeners {
@@ -204,4 +210,20 @@ input[type="range"]::-webkit-slider-thumb{
 
 .save_artist.selected {
     color: #a41b4c;
+}
+
+#saved_artist_intro {
+    padding: 20px;
+}
+
+#results li {
+    margin-bottom: 20px;
+}
+
+.fetchButton {
+    font-size: 23px;
+}
+
+.genreTitle {
+    padding-bottom: 5px;
 }
