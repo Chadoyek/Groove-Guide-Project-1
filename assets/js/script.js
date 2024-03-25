@@ -265,10 +265,10 @@ function saveArtists(){
 function saveNewArtist(artistObj) {
   console.log(artistObj);
   var artistArray = {
-    artistName: artistObj.dataset.artistName,
-    spotifyUrl: artistObj.dataset.spotifyUrl,
-    recSong:  artistObj.dataset.recSong,
-    songUrl: artistObj.dataset.songUrl,
+    artistName: artistObj.dataset.artistname,
+    spotifyUrl: artistObj.dataset.spotifyurl,
+    recSong:  artistObj.dataset.recsong,
+    songUrl: artistObj.dataset.songurl,
   }
 
   console.log(artistArray);
@@ -276,7 +276,7 @@ function saveNewArtist(artistObj) {
   localStorage.setItem("savedArtists", JSON.stringify(savedArtists));
 }
 
-
+console.log(savedArtists);
  
 //testing our set genre & slider data.
 // how the request should look
