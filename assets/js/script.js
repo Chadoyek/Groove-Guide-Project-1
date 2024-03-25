@@ -218,21 +218,23 @@ function generateArtistCards(data){
     var songUrl    = data.tracks[i].external_urls.spotify;
 
     var resultsLi = document.createElement("li");
-    resultsLi.innerHTML = "<a href='"+spotifyUrl+"' target='_blank'>"+artistName+"</a>";
+    resultsLi.innerHTML += "<a href='"+spotifyUrl+"' target='_blank'>"+artistName+"</a> <br />";
 
-    var resultsSong = document.createElement("p");
-    resultsSong.innerHTML ="<a href='"+songUrl+"' target='_blank'>"+recSong+"</a>";
-    resultsListEl.appendChild(resultsLi, " ", resultsSong);
+    // for
+    // var resultsSong = document.createElement("p");
+    // resultsSong.innerHTML ="<a href='"+songUrl+"' target='_blank'>"+recSong+"</a>";
+    // resultsListEl.appendChild(resultsLi, " ", resultsSong);
 
     //var saveButton = document.createElement("button");
     saveButton = document.createElement("button");
     saveButton.className = "save_artist";
-    saveButton.textContent = "save_artist";
+    saveButton.textContent = "save artist";
     saveButton.setAttribute("data-artistName", artistName);
     saveButton.setAttribute("data-spotifyUrl", spotifyUrl);
     saveButton.setAttribute("data-recSong", recSong);
     saveButton.setAttribute("data-songUrl", songUrl);
-    resultsListEl.appendChild(saveButton);
+    resultsLi.append(saveButton);
+    resultsListEl.append(resultsLi);
 
   }
   saveArtists();
