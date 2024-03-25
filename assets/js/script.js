@@ -1,4 +1,4 @@
-// Monthly Listeners Slider
+// Listeners Slider
 
 const rangeInput = document.querySelectorAll(".rangeInput Input");
 listenersInput = document.querySelectorAll(".listenersInput Input");
@@ -60,10 +60,10 @@ rangeInput.forEach(input =>{
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 
-var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
-//var client_id = 'df9aa5598206496d8f260a29f1738f45';
-var client_secret = '73ca7f76b05e435a933602925a2392e7';
-//var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
+//var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
+var client_id = 'df9aa5598206496d8f260a29f1738f45';
+//var client_secret = '73ca7f76b05e435a933602925a2392e7';
+var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
 var url = 'https://accounts.spotify.com/api/token';
 var form = new URLSearchParams({grant_type: 'client_credentials'});
 var artists_output = "";
@@ -88,7 +88,7 @@ if(savedArtists){
   for(i=0; i<savedArtists.length; i++){
     artists_output += "<div class='artist_info'>";
     artists_output += "<p>Artist: <a href='"+savedArtists[i].spotifyUrl+"' target='_blank'>"+savedArtists[i].artistName+"</a></p>";
-    artists_output += "<p>Song: <a href='"+savedArtists[i].recSong+"' target='_blank'>"+savedArtists[i].recSong+"</a></p>";
+    artists_output += "<p>Song: <a href='"+savedArtists[i].songUrl+"' target='_blank'>"+savedArtists[i].recSong+"</a></p>";
     artists_output += "</div>";
   }
 
@@ -228,7 +228,6 @@ function generateArtistCards(data){
     var songUrl    = data.tracks[i].external_urls.spotify;
 
     var resultsLi = document.createElement("li");
-    
     resultsLi.innerHTML = "<a href='"+spotifyUrl+"' target='_blank'>"+artistName+"</a>";
 
     var resultsSong = document.createElement("p");
@@ -238,7 +237,7 @@ function generateArtistCards(data){
     //var saveButton = document.createElement("button");
     saveButton = document.createElement("button");
     saveButton.className = "save_artist";
-    saveButton.textContent = "save artist";
+    saveButton.textContent = "save_artist";
     saveButton.setAttribute("data-artistName", artistName);
     saveButton.setAttribute("data-spotifyUrl", spotifyUrl);
     saveButton.setAttribute("data-recSong", recSong);
@@ -266,10 +265,10 @@ function saveArtists(){
 function saveNewArtist(artistObj) {
   console.log(artistObj);
   var artistArray = {
-    artistName: artistObj.dataset.artistname,
-    spotifyUrl: artistObj.dataset.spotifyurl,
-    recSong:  artistObj.dataset.recsong,
-    songUrl: artistObj.dataset.songurl,
+    artistName: artistObj.dataset.artistName,
+    spotifyUrl: artistObj.dataset.spotifyUrl,
+    recSong:  artistObj.dataset.recSong,
+    songUrl: artistObj.dataset.songUrl,
   }
 
   console.log(artistArray);

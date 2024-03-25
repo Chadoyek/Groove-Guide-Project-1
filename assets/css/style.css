@@ -3,9 +3,7 @@
 :root{
     --main-color: #a41b4c;
     --main-font:'Luckiest Guy', sans-serif;
-
 }
-
 
 body {
     font-family: var(--main-font);
@@ -56,9 +54,6 @@ body {
     font-size: 20px;
 }
 
-/* .monthlyListeners{
-    display: flex;
-} */
 .listenersInput{
     width: 100%;
     display: flex;
@@ -82,17 +77,18 @@ body {
     border-radius: 5px;
     border: 1px solid var(--main-color);
 }
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button{
     -webkit-appearance: none;
 }
+
 .listenersInput .separator{
     width: 130px;
     display: flex;
     font-size: 20px;
     align-items: center;
     justify-content: center;
-
 }
 
 .sliderListeners{
@@ -132,7 +128,6 @@ input[type="range"]::-webkit-slider-thumb{
     pointer-events: auto;
     -webkit-appearance: none;
     background: var(--main-color);
-    
 }
 
 .card {
@@ -144,22 +139,13 @@ input[type="range"]::-webkit-slider-thumb{
     font-size: 20px;
 }
 
-.cell{
+.cell {
     padding: 20px;
 }
 
 .top-bar {
     background-color: var(--main-color);
     font-size: 35px;
-
-}
-
-.accordion {
-    font-size: 20px;
-}
-
-.accordion-title {
-    font-size: 25px;
 }
 
 .monthlyListeners {
