@@ -66,6 +66,7 @@ var fetchButton = document.getElementById("fetchButton");
 var accordionEl = document.querySelector(".accordion");
 var resultsListEl = document.querySelector("#results");
 var savedArtistsDisplayEl = document.querySelector("#saved_artists_display");
+var clearSavedEl = document.querySelector("#clear_saved");
 
 var saveButton = "";
 
@@ -87,6 +88,14 @@ if(savedArtists){
   }
 }
 
+if(clearSavedEl){
+  clearSavedEl.addEventListener("click", function() {
+    console.log("deleting artist!");
+    savedArtists = [];
+    localStorage.setItem("savedArtists", JSON.stringify(savedArtists));
+    location.reload();
+  });
+}
 
 var tracksSaved = document.querySelector('#tracksSaved'); //placeholder variable for tracks saved //Feature to add later? 
 
@@ -256,10 +265,10 @@ function saveArtists(){
 function saveNewArtist(artistObj) {
   console.log(artistObj);
   var artistArray = {
-    artistName: artistObj.dataset.artistName,
-    spotifyUrl: artistObj.dataset.spotifyUrl,
-    recSong:  artistObj.dataset.recSong,
-    songUrl: artistObj.dataset.songUrl,
+    artistName: artistObj.dataset.artistname,
+    spotifyUrl: artistObj.dataset.spotifyurl,
+    recSong:  artistObj.dataset.recsong,
+    songUrl: artistObj.dataset.songurl,
   }
 
   console.log(artistArray);
@@ -267,7 +276,7 @@ function saveNewArtist(artistObj) {
   localStorage.setItem("savedArtists", JSON.stringify(savedArtists));
 }
 
-
+console.log(savedArtists);
  
 //testing our set genre & slider data.
 // how the request should look
