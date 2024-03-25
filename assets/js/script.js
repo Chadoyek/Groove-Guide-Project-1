@@ -66,6 +66,7 @@ var fetchButton = document.getElementById("fetchButton");
 var accordionEl = document.querySelector(".accordion");
 var resultsListEl = document.querySelector("#results");
 var savedArtistsDisplayEl = document.querySelector("#saved_artists_display");
+var clearSavedEl = document.querySelector("#clear_saved");
 
 var saveButton = "";
 
@@ -87,6 +88,14 @@ if(savedArtists){
   }
 }
 
+if(clearSavedEl){
+  clearSavedEl.addEventListener("click", function() {
+    console.log("deleting artist!");
+    savedArtists = [];
+    localStorage.setItem("savedArtists", JSON.stringify(savedArtists));
+    location.reload();
+  });
+}
 
 var tracksSaved = document.querySelector('#tracksSaved'); //placeholder variable for tracks saved //Feature to add later? 
 

@@ -205,3 +205,13 @@ input[type="range"]::-webkit-slider-thumb{
 .save_artist.selected {
     color: #a41b4c;
 }
+#clear_saved{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    max-width: 250px;
+    margin-left: 40px;
+    padding: 20px;
+    background-color: #a41b4c;
+}
