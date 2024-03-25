@@ -7,6 +7,7 @@
 
 body {
     font-family: var(--main-font);
+    display:flexbox;
 }
 
 .menu-text {
@@ -132,13 +133,22 @@ input[type="range"]::-webkit-slider-thumb{
 }
 
 .card {
-    margin-left: 300px;
-    margin-top: 50px;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 25px;
+    min-width: 300px;
+    max-width: 500px;
+    width: auto;
+}
+.image{
+    max-height: 300px;
+    overflow: hidden;
 }
 
 .card-divider {
     font-size: 20px;
 }
+
 
 .cell {
     padding: 20px;
@@ -199,7 +209,7 @@ input[type="range"]::-webkit-slider-thumb{
     border: #ccc 5px groove;
     margin-left: 20px;
     margin-right: 20px;
-    min-width: 250px;
+    min-width: 150px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
