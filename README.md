@@ -3,7 +3,7 @@
 # User Story
 AS A music enthusiast,
 
-I WANT to easily discover new artists and their music based on my preferences.
+I WANT to easily discover new and emerging artists and their music based on my preferences.
 
 SO THAT I can explore a diverse range of music and enjoy fresh musical experiences.
 
@@ -12,22 +12,22 @@ SO THAT I can explore a diverse range of music and enjoy fresh musical experienc
 GIVEN user wants to locate artist:
 
 WHEN the home page loads
-    THEN I am presented with home page that has genres, popularity slider, and saved artist
+THEN I am presented with home page that has a genre drop-down, popularity slider, and saved artist selection
 
 WHEN I click the genre dropdown
-    THEN all the genres I can choose from are available 
+THEN all the genres I can choose from are available 
 
 WHEN I drag the slider or enter two numbers in the popularity filter and click guide me
-    THEN the using your inputs the card on the right populates with artist, songs, along with save option
+THEN using your inputs the card on the right populates with artist, songs, along with save option
 
 WHEN I click saved artists in the top right
-    THEN I am presented with a new page that has all my past and current selections
+THEN I am presented with a new page that has all my past and current selections
 
 WHEN I click on the artist name or song
-    THEN I am taken to that spotify link
+THEN I am taken to that Spotify link
 
 WHEN I resize the page or view the site on various screens and devices
-    THEN I am presented with a responsive layout that adapts to my viewport
+THEN I am presented with a responsive layout that adapts to my viewport
 
 
 ## Name
@@ -60,7 +60,7 @@ Screenshot of the saved artist page, and when the artist and song are clicked ne
 
 
 ## Credits
-This was built from scratch
+This was an original build by our team
 
 
 ## Test
