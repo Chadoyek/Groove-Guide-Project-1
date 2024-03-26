@@ -50,10 +50,10 @@ rangeInput.forEach(input =>{
 //snagged from spotify's API doc listed here: 
 //https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 
-var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
-//var client_id = 'df9aa5598206496d8f260a29f1738f45';
-var client_secret = '73ca7f76b05e435a933602925a2392e7';
-//var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
+//var client_id = '3609e8db73c940d59d8b0dd1d47e0dd7';
+var client_id = 'df9aa5598206496d8f260a29f1738f45';
+//var client_secret = '73ca7f76b05e435a933602925a2392e7';
+var client_secret = '4b888695abc84c6aaa541ff00b7a5381';
 var url = 'https://accounts.spotify.com/api/token';
 var form = new URLSearchParams({grant_type: 'client_credentials'});
 var artists_output = "";
