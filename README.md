@@ -69,15 +69,15 @@ Consistent testing of links throughout each iteration
 
 ## Authors and acknowledgment
 Appreciation to the Instructor and TAs at EdX Berkeley and our hard working team: 
-Reed Sandbach
-Seth Jackson
-Chadi Hoyek
-Chandrika Sista
+Reed Sandbach, 
+Seth Jackson,
+Chadi Hoyek,
+Chandrika Sista,
 Kimberly Robinson
 
 
 ## Support
-If you need help with anything please email us at ?????
+If you need help with anything please email us at help@groove-guide.com
 
 
 ## Project status
